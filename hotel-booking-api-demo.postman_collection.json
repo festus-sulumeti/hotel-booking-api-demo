@@ -1,0 +1,142 @@
+{
+  "info": {
+    "name": "Hotel Booking API Demo",
+    "_postman_id": "f9c5a1c8-2025-08-21-1234-5678-demo",
+    "description": "Hotel Booking Management API demo showcasing API Testing & Design with AI.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "health"]
+        }
+      }
+    },
+    {
+      "name": "Auth - Register",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Alice\",\n  \"email\": \"alice@example.com\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/register",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "auth", "register"]
+        }
+      }
+    },
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"alice@example.com\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/auth/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "auth", "login"]
+        }
+      }
+    },
+    {
+      "name": "Hotels - List Hotels",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/hotels",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "hotels"]
+        }
+      }
+    },
+    {
+      "name": "Rooms - List Rooms for Hotel",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/hotels/1/rooms",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "hotels", "1", "rooms"]
+        }
+      }
+    },
+    {
+      "name": "Bookings - Create Booking",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"hotelId\": 1,\n  \"roomId\": 101,\n  \"checkIn\": \"2025-09-01\",\n  \"checkOut\": \"2025-09-05\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/bookings",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "bookings"]
+        }
+      }
+    },
+    {
+      "name": "Payments - Initiate Payment",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"bookingId\": 1,\n  \"method\": \"mpesa\",\n  \"amount\": 480\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/payments/initiate",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "payments", "initiate"]
+        }
+      }
+    },
+    {
+      "name": "Payments - Webhook (Provider → API)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"paymentId\": \"pay_123\",\n  \"status\": \"confirmed\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/payments/webhook",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "payments", "webhook"]
+        }
+      }
+    }
+  ]
+}
